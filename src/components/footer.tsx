@@ -1,4 +1,4 @@
-import { Logo, LogoImage, LogoText } from '@/components/shadcnblocks/logo'
+import { Logo, LogoImage, LogoText } from '@/components/logo'
 import { Container } from './container'
 
 interface MenuItem {

@@ -1,24 +1,11 @@
-import { cn } from '@/lib/utils'
 import { Check } from 'lucide-react'
 import { Container } from './container'
 
-interface Feature {
-  title: string
-  description: string
-}
-
-interface FeatureContainerProps {
-  title?: string
-  subtitle?: string
-  features?: Feature[]
-  image?: string
-  className?: string
-}
-
-const FeatureContainer = ({
-  title = 'Boost your productivity. Start using our app today.',
-  subtitle = 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-  features = [
+const FEATURE_CONTAINER_CONTENT = {
+  title: 'Boost your productivity. Start using our app today.',
+  subtitle:
+    'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
+  features: [
     {
       title: 'Push to deploy',
       description:
@@ -35,23 +22,29 @@ const FeatureContainer = ({
         'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus.',
     },
   ],
-  image = 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg',
-  className,
-}: FeatureContainerProps) => {
+  image:
+    'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg',
+}
+
+const FeatureContainer = () => {
   return (
-    <section className={cn('py-32', className)}>
+    <section className="py-32">
       <Container>
         <div className="relative overflow-hidden rounded-xl bg-foreground text-background p-10 shadow-sm lg:p-16">
           <div className="relative grid gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Left column - Content */}
             <div className="flex flex-col justify-center space-y-8">
               <div className="space-y-4">
-                <h2 className="text-2xl font-semibold lg:text-4xl">{title}</h2>
-                <p className="text-muted lg:text-lg">{subtitle}</p>
+                <h2 className="text-2xl font-semibold lg:text-4xl">
+                  {FEATURE_CONTAINER_CONTENT.title}
+                </h2>
+                <p className="text-muted lg:text-lg">
+                  {FEATURE_CONTAINER_CONTENT.subtitle}
+                </p>
               </div>
 
               <ul className="space-y-6">
-                {features.map((feature, index) => (
+                {FEATURE_CONTAINER_CONTENT.features.map((feature, index) => (
                   <li key={index} className="flex gap-4">
                     <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-background">
                       <Check className="h-4 w-4 text-primary" />
@@ -71,7 +64,7 @@ const FeatureContainer = ({
             <div className="relative flex items-center justify-end lg:-mr-16">
               <div className="relative w-full overflow-hidden rounded-tl-lg rounded-bl-lg">
                 <img
-                  src={image}
+                  src={FEATURE_CONTAINER_CONTENT.image}
                   alt="Dashboard preview"
                   className="h-auto w-full object-cover lg:w-[120%]"
                 />
